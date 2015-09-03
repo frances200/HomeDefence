@@ -56,29 +56,29 @@ public class GameScreen implements Screen {
 		for(int x=0;x<block.length;x++){
 			for(int y=0;y<block[0].length;y++){
 				if(block[0][5].ID == Tile.airID){
-					block[0][4].ID = Tile.groundID;
-					block[1][4].ID = Tile.groundID;
-					block[1][3].ID = Tile.groundID;
-					block[2][3].ID = Tile.groundID;
-					block[3][3].ID = Tile.groundID;
-					block[4][3].ID = Tile.groundID;
-					block[4][4].ID = Tile.groundID;
-					block[4][5].ID = Tile.groundID;
-					block[4][6].ID = Tile.groundID;
-					block[5][6].ID = Tile.groundID;
-					block[6][6].ID = Tile.groundID;
-					block[7][6].ID = Tile.groundID;
-					block[8][6].ID = Tile.groundID;
-					block[8][5].ID = Tile.groundID;
-					block[8][4].ID = Tile.groundID;
-					block[8][3].ID = Tile.groundID;
-					block[8][2].ID = Tile.groundID;
-					block[9][2].ID = Tile.groundID;
-					block[10][2].ID = Tile.groundID;
-					block[11][2].ID = Tile.groundID;
-					block[12][2].ID = Tile.groundID;
-					block[13][2].ID = Tile.groundID;
-					block[14][2].ID = Tile.groundID;
+					block[0][4].ID = Tile.horizontalID;
+					block[1][4].ID = Tile.RightUpCornerID;
+					block[1][3].ID = Tile.LeftDownCorner;
+					block[2][3].ID = Tile.horizontalID;
+					block[3][3].ID = Tile.horizontalID;
+					block[4][3].ID = Tile.RightDownCorner;
+					block[4][4].ID = Tile.verticalID;
+					block[4][5].ID = Tile.verticalID;
+					block[4][6].ID = Tile.leftUpCornerID;
+					block[5][6].ID = Tile.horizontalID;
+					block[6][6].ID = Tile.horizontalID;
+					block[7][6].ID = Tile.horizontalID;
+					block[8][6].ID = Tile.RightUpCornerID;
+					block[8][5].ID = Tile.verticalID;
+					block[8][4].ID = Tile.verticalID;
+					block[8][3].ID = Tile.verticalID;
+					block[8][2].ID = Tile.LeftDownCorner;
+					block[9][2].ID = Tile.horizontalID;
+					block[10][2].ID = Tile.horizontalID;
+					block[11][2].ID = Tile.horizontalID;
+					block[12][2].ID = Tile.horizontalID;
+					block[13][2].ID = Tile.horizontalID;
+					block[14][2].ID = Tile.horizontalID;
 				}
 			}
 		}
@@ -104,7 +104,7 @@ public class GameScreen implements Screen {
 		main.batch.end();
 	}
 	//100 = 1 second;
-	public int spawnTime = 50, spawnFrame = 0;
+	public int spawnTime = 75, spawnFrame = 0;
 	public void spawnEnemy(){
 		if(spawnFrame >= spawnTime){
 			for(int i=0;i<maxEnemies.length;i++){
