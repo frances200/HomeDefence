@@ -109,7 +109,6 @@ public class Enemy extends Rectangle {
 						
 					}
 				}
-				System.out.println(direction);
 				
 				mobWalk = 0;
 				

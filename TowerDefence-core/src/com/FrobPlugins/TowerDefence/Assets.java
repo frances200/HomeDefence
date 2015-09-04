@@ -46,12 +46,6 @@ public class Assets {
 		sprite_build = new Sprite(build);
 		sprite_cell = new Sprite(cell);
 		sprite_enemy = new Sprite(enemy);
-		sprite_enemy = new Sprite(enemy);
-		sprite_enemy = new Sprite(enemy);
-		sprite_enemy = new Sprite(enemy);
-		sprite_enemy = new Sprite(enemy);
-		sprite_enemy = new Sprite(enemy);
-		sprite_enemy = new Sprite(enemy);
 		sprite_LeftUpperCorner_path = new Sprite(LeftUpperCorner_path);
 		sprite_LeftDownCorner_path = new Sprite(LeftDownCorner_path);
 		sprite_RightUpperCorner_path = new Sprite(RightUpperCorner_path);
