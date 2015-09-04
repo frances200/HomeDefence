@@ -16,11 +16,11 @@ public class GameScreen implements Screen {
 	public boolean ButtonClicked;
 	boolean disabled = false;
 	static int mapWidth = 15;
-	static int mapHeight = 8;
+	static int mapHeight = 7;
 	static int ScreenWidth = 1280;
 	static int ScreenHeight = 720;
 	public static Block[][] block;
-	Enemy[] maxEnemies = new Enemy[100];
+	public static Enemy[] maxEnemies = new Enemy[2];
 	Inventory inventory;
 	
 	public GameScreen(Main main){
@@ -34,6 +34,11 @@ public class GameScreen implements Screen {
 		camera.update();
 		inventory = new Inventory();
 		block = new Block[mapWidth][mapHeight];
+		for(int x=0;x<block.length;x++){
+			for(int y=0;y<block[0].length;y++){
+				block[x][y] = new Block((ScreenWidth/2) - ((mapWidth*blockSize)/2) + x * blockSize,(ScreenHeight/2) - ((mapHeight*blockSize)/2) + y * blockSize, blockSize, blockSize, Tile.airID);
+			}
+		}
 		createLevel1();
 		for(int i=0;i<maxEnemies.length;i++){
 			maxEnemies[i] = new Enemy();
@@ -49,10 +54,22 @@ public class GameScreen implements Screen {
 		
 		//Listener Methods
 		clickListener();
-		
-		for(int x=0;x<block.length;x++){
-			for(int y=0;y<block[0].length;y++){
-				block[x][y] = new Block((ScreenWidth/2) - ((mapWidth*blockSize)/2) + x * blockSize,(ScreenHeight/2) - ((mapHeight*blockSize)/2) + y * blockSize, blockSize, blockSize, Tile.airID);
+		if(inventory.holdTower1){
+			for(int x=0;x<block.length;x++){
+				for(int y=0;y<block[0].length;y++){
+					if(block[x][y].contains(inventory.pointX, 720-inventory.pointY) && Gdx.input.justTouched()){
+						block[x][y].ID = Tile.treeTower;
+					}
+				}
+			}
+		}
+		if(inventory.holdTower2){
+			for(int x=0;x<block.length;x++){
+				for(int y=0;y<block[0].length;y++){
+					if(block[x][y].contains(inventory.pointX, 720-inventory.pointY) && Gdx.input.justTouched()){
+						block[x][y].ID = Tile.hoseTower;
+					}
+				}
 			}
 		}
 		for(int x=0;x<block.length;x++){
@@ -87,6 +104,11 @@ public class GameScreen implements Screen {
 		for(int i=0;i<maxEnemies.length;i++){
 			maxEnemies[i].update();
 		}
+		for(int x=0;x<block.length;x++){
+			for(int y=0;y<block[0].length;y++){
+				block[x][y].update();
+			}
+		}
 		inventory.update();
 		spawnEnemy();
 		draw();
@@ -104,8 +126,8 @@ public class GameScreen implements Screen {
 				maxEnemies[i].draw(main.batch);
 			}
 		}
-		main.batch.draw(Assets.sprite_build, 0, 0);
 		inventory.draw(main.batch);
+		main.batch.draw(Assets.sprite_build, 0, 0);
 		main.batch.end();
 	}
 	//100 = 1 second;

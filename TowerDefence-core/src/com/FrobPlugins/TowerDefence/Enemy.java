@@ -12,7 +12,7 @@ public class Enemy extends Rectangle {
 	public int xC, yC;
 	public int direction = right;
 	public boolean hasUp = false, hasDown = false, hasLeft = false, hasRight = false;
-	
+	public int health= 100;
 	public Enemy(){
 		
 	}
@@ -35,22 +35,22 @@ public class Enemy extends Rectangle {
 	public void update(){
 		if(inGame){
 			if(direction == right){
-				x += 1;
+				x += walkSpeed;
 				hasRight = true;
 			}
 			if(direction == down){
-				y -= 1;
+				y -= walkSpeed;
 				hasDown = true;
 			}
 			if(direction == up){
-				y += 1;
+				y += walkSpeed;
 				hasUp = true;
 			}
 			if(direction == left){
-				x -= 1;
+				x -= walkSpeed;
 				hasLeft = true;
 			}
-			mobWalk += 1;
+			mobWalk += walkSpeed;
 			if(mobWalk == 80){
 				if(direction == right){
 					xC += 1;
@@ -118,9 +118,15 @@ public class Enemy extends Rectangle {
 				hasRight = false;
 			}
 		}
+		System.out.println(health);
+		if(health <= 0){
+			inGame = false;
+		}
 	}
 	
 	public void draw(SpriteBatch batch){
-		batch.draw(Assets.sprite_enemy, x, y);
+		if(health > 0){
+			batch.draw(Assets.sprite_enemy, x, y);
+		}
 	}
 }

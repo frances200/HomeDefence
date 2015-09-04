@@ -30,6 +30,16 @@ public class Assets {
 	public static Sprite sprite_enemy;
 	public Texture tower;
 	public static Sprite sprite_tower;
+	public Texture freeSpace;
+	public static Sprite sprite_freeSpace;
+	public Texture noFreeSpace;
+	public static Sprite sprite_noFreeSpace;
+	public Texture towerTreeGround;
+	public static Sprite sprite_towerTreeGround;
+	public Texture itemHose;
+	public static Sprite sprite_itemHose;
+	public Texture groundHose;
+	public static Sprite sprite_groundHose;
 	
 	public void load(){
 		//Load textures
@@ -45,6 +55,11 @@ public class Assets {
 		vertical_path = new Texture(Gdx.files.internal("Textures/Vertical.png"));
 		horizontal_path = new Texture(Gdx.files.internal("Textures/Horizontal.png"));
 		tower = new Texture(Gdx.files.internal("Textures/tower.png"));
+		freeSpace = new Texture(Gdx.files.internal("Textures/FreeSpace.png"));
+		noFreeSpace = new Texture(Gdx.files.internal("Textures/NoFreeSpace.png"));
+		towerTreeGround = new Texture(Gdx.files.internal("Textures/TowerTreeGround.png"));
+		itemHose = new Texture(Gdx.files.internal("Textures/itemHose.png"));
+		groundHose = new Texture(Gdx.files.internal("Textures/groundHose.png"));
 	
 		
 		//Load Sprites
@@ -60,5 +75,10 @@ public class Assets {
 		sprite_vertical_path = new Sprite(vertical_path);
 		sprite_horizontal_path = new Sprite(horizontal_path);
 		sprite_tower = new Sprite(tower);
+		sprite_freeSpace = new Sprite(freeSpace);
+		sprite_noFreeSpace = new Sprite(noFreeSpace);
+		sprite_towerTreeGround = new Sprite(towerTreeGround);
+		sprite_itemHose = new Sprite(itemHose);
+		sprite_groundHose = new Sprite(groundHose);
 	}
 }
