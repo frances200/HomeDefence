@@ -15,12 +15,13 @@ public class GameScreen implements Screen {
 	public static int blockSize = 80;
 	public boolean ButtonClicked;
 	boolean disabled = false;
-	int mapWidth = 15;
-	int mapHeight = 8;
-	int ScreenWidth = 1280;
-	int ScreenHeight = 720;
+	static int mapWidth = 15;
+	static int mapHeight = 8;
+	static int ScreenWidth = 1280;
+	static int ScreenHeight = 720;
 	public static Block[][] block;
 	Enemy[] maxEnemies = new Enemy[100];
+	Inventory inventory;
 	
 	public GameScreen(Main main){
 		this.main = main;
@@ -31,6 +32,7 @@ public class GameScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, ScreenWidth, ScreenHeight);
 		camera.update();
+		inventory = new Inventory();
 		block = new Block[mapWidth][mapHeight];
 		createLevel1();
 		for(int i=0;i<maxEnemies.length;i++){
@@ -40,7 +42,7 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl20.glClearColor(0.5f, 0.5f, 0.5f, 1);
+		Gdx.gl20.glClearColor(0f, 0f, 0f, 1);
 		Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		camera.update();
 		main.batch.setProjectionMatrix(camera.combined);
@@ -85,6 +87,7 @@ public class GameScreen implements Screen {
 		for(int i=0;i<maxEnemies.length;i++){
 			maxEnemies[i].update();
 		}
+		inventory.update();
 		spawnEnemy();
 		draw();
 	}
@@ -101,6 +104,8 @@ public class GameScreen implements Screen {
 				maxEnemies[i].draw(main.batch);
 			}
 		}
+		main.batch.draw(Assets.sprite_build, 0, 0);
+		inventory.draw(main.batch);
 		main.batch.end();
 	}
 	//100 = 1 second;

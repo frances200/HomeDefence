@@ -12,6 +12,8 @@ public class Assets {
 	public static Sprite sprite_build;
 	public Texture cell;
 	public static Sprite sprite_cell;
+	public Texture cell_selected;
+	public static Sprite sprite_cellSelected;
 	public Texture vertical_path;
 	public static Sprite sprite_vertical_path;
 	public Texture horizontal_path;
@@ -32,6 +34,7 @@ public class Assets {
 		grass = new Texture(Gdx.files.internal("Textures/grass.png"));
 		build = new Texture(Gdx.files.internal("Textures/BuildButton.png"));
 		cell = new Texture(Gdx.files.internal("Textures/Cell.png"));
+		cell_selected = new Texture(Gdx.files.internal("Textures/cell_selected.png"));
 		enemy = new Texture(Gdx.files.internal("Textures/Enemy.png"));
 		LeftUpperCorner_path = new Texture(Gdx.files.internal("Textures/LeftUpCorner.png"));
 		RightUpperCorner_path = new Texture(Gdx.files.internal("Textures/RightUpCorner.png"));
@@ -45,6 +48,7 @@ public class Assets {
 		sprite_grass = new Sprite(grass);
 		sprite_build = new Sprite(build);
 		sprite_cell = new Sprite(cell);
+		sprite_cellSelected = new Sprite(cell_selected);
 		sprite_enemy = new Sprite(enemy);
 		sprite_LeftUpperCorner_path = new Sprite(LeftUpperCorner_path);
 		sprite_LeftDownCorner_path = new Sprite(LeftDownCorner_path);

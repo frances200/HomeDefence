@@ -5,7 +5,6 @@ import com.badlogic.gdx.math.Rectangle;
 
 public class Block extends Rectangle{
 	int ID;
-	int blockSize = 80;
 	
 	public Block(int x, int y, int width, int height, int ID){
 		set(x, y, width, height);
