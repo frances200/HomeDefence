@@ -28,6 +28,8 @@ public class Assets {
 	public static Sprite sprite_RightDownCorner_path;
 	public Texture enemy;
 	public static Sprite sprite_enemy;
+	public Texture tower;
+	public static Sprite sprite_tower;
 	
 	public void load(){
 		//Load textures
@@ -42,6 +44,7 @@ public class Assets {
 		RightDownCorner_path = new Texture(Gdx.files.internal("Textures/RightDownCorner.png"));
 		vertical_path = new Texture(Gdx.files.internal("Textures/Vertical.png"));
 		horizontal_path = new Texture(Gdx.files.internal("Textures/Horizontal.png"));
+		tower = new Texture(Gdx.files.internal("Textures/tower.png"));
 	
 		
 		//Load Sprites
@@ -56,5 +59,6 @@ public class Assets {
 		sprite_RightDownCorner_path = new Sprite(RightDownCorner_path);
 		sprite_vertical_path = new Sprite(vertical_path);
 		sprite_horizontal_path = new Sprite(horizontal_path);
+		sprite_tower = new Sprite(tower);
 	}
 }

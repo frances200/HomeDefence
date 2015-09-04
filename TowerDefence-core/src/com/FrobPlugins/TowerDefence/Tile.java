@@ -11,5 +11,5 @@ public class Tile {
 	public static final int RightDownCorner = 6;
 	public static final int cell = 7;
 	public static final int cell_selected = 8;
-	public static final int piemel = 9;
+	public static final int tower = 9;
 }

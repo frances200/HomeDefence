@@ -11,8 +11,6 @@ public class Inventory {
 	boolean isOpen = false;
 	int pointX;
 	int pointY;
-	int[] buttonIDX = {Tile.piemel, Tile.airID, Tile.airID, Tile.airID, Tile.airID};
-	int[] buttonIDY = {320, 400, 480, 560, 640};
 	
 	public Inventory(){
 		cell = new Cell[inventoryWidth][inventoryHeight];
@@ -74,6 +72,7 @@ public class Inventory {
 			for(int x=0;x<cell.length;x++){
 				for(int y=0;y<cell[0].length;y++){
 					batch.draw(Assets.sprite_cell, cell[x][y].x, cell[x][y].y);
+					batch.draw(Assets.sprite_tower, cell[4][4].x, cell[4][4].y);
 					if(cell[x][y].contains(pointX,720 - pointY)){
 						batch.draw(Assets.sprite_cellSelected, cell[x][y].x, cell[x][y].y);
 					}
