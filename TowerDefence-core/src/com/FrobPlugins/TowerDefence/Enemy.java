@@ -51,34 +51,26 @@ public class Enemy extends Rectangle {
 				hasLeft = true;
 			}
 			mobWalk += 1;
-			System.out.println(direction);
 			if(mobWalk == 80){
 				if(direction == right){
 					xC += 1;
 				}
-				if(direction == up){
+				else if(direction == up){
 					yC += 1;
 				}
-				if(direction == down){
+				else if(direction == down){
 					yC -= 1;
 				}
+				else if(direction == left){
+					xC -= 1;
+				}
+				
 				if(!hasUp){
 					try{
 						if(GameScreen.block[xC][yC-1].ID == Tile.horizontalID || GameScreen.block[xC][yC-1].ID == Tile.verticalID
 								|| GameScreen.block[xC][yC-1].ID == Tile.leftUpCornerID || GameScreen.block[xC][yC-1].ID == Tile.LeftDownCorner
 								|| GameScreen.block[xC][yC-1].ID == Tile.RightUpCornerID || GameScreen.block[xC][yC-1].ID == Tile.RightDownCorner){
 							direction = down;
-						}
-					}catch(Exception e){
-						
-					}
-				}
-				if(!hasLeft){
-					try{
-						if(GameScreen.block[xC][yC-1].ID == Tile.horizontalID || GameScreen.block[xC][yC-1].ID == Tile.verticalID
-								|| GameScreen.block[xC][yC-1].ID == Tile.leftUpCornerID || GameScreen.block[xC][yC-1].ID == Tile.LeftDownCorner
-								|| GameScreen.block[xC][yC-1].ID == Tile.RightUpCornerID || GameScreen.block[xC][yC-1].ID == Tile.RightDownCorner){
-							direction = right;
 						}
 					}catch(Exception e){
 						
@@ -95,6 +87,17 @@ public class Enemy extends Rectangle {
 						
 					}
 				}
+				if(!hasLeft){
+					try{
+						if(GameScreen.block[xC+1][yC].ID == Tile.horizontalID || GameScreen.block[xC+1][yC].ID == Tile.verticalID
+								|| GameScreen.block[xC+1][yC].ID == Tile.leftUpCornerID || GameScreen.block[xC+1][yC].ID == Tile.LeftDownCorner
+								|| GameScreen.block[xC+1][yC].ID == Tile.RightUpCornerID || GameScreen.block[xC+1][yC].ID == Tile.RightDownCorner){
+							direction = right;
+						}
+					}catch(Exception e){
+						
+					}
+				}
 				if(!hasRight){
 					try{
 						if(GameScreen.block[xC-1][yC].ID == Tile.horizontalID || GameScreen.block[xC-1][yC].ID == Tile.verticalID
@@ -106,12 +109,15 @@ public class Enemy extends Rectangle {
 						
 					}
 				}
+				System.out.println(direction);
+				
 				mobWalk = 0;
+				
+				hasUp = false;
+				hasDown = false;
+				hasLeft = false;
+				hasRight = false;
 			}
-			hasUp = false;
-			hasDown = false;
-			hasLeft = false;
-			hasRight = false;
 		}
 	}
 	
